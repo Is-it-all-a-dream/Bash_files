@@ -112,11 +112,12 @@ if ! shopt -oq posix; then
   fi
 fi
 #invert the colours on xterm because fg and bg aren't working for some reason
-terminalname=$(ps -p $(ps -p $$ -o ppid=) o args=)
-if [ ${terminalname} == 'xterm' ]
-then setterm -inversescreen on
-fi
-
-PS1="\e[1;35m[kali@\w] \$ \e[m"
+#terminalname=$(ps -p $(ps -p $$ -o ppid=) o args=)
+#if [ ${terminalname} == 'xterm' ]
+#then setterm -inversescreen on
+#fi
+xrdb -merge .Xresources 
+PS1="\e[1;100;35m[kali@\w] \$ \e[m"
 .d
-neofetch
+$HOME/startup
+. "$HOME/.cargo/env"
